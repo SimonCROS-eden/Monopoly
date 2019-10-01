@@ -1,0 +1,113 @@
+{
+  "size": 7,
+  "cards": [
+    {
+      "name": "Départ (+5000€)",
+      "type": "start"
+    },
+    {
+      "name": "Boul. de Belleville",
+      "type": "card",
+      "color": "red"
+    },
+    {
+      "name": "Chance",
+      "type": "chance"
+    },
+    {
+      "name": "Rue Boileau",
+      "type": "card",
+      "color": "red"
+    },
+    {
+      "name": "Gare de la Part-Dieu",
+      "type": "gare"
+    },
+    {
+      "name": "Rue de Abc",
+      "type": "card",
+      "color": "red"
+    },
+    {
+      "name": "Simple visite",
+      "type": "jail"
+    },
+    {
+      "name": "Boul. de Belleville",
+      "type": "card",
+      "color": "gold"
+    },
+    {
+      "name": "Caisse de communauté",
+      "type": "caisse"
+    },
+    {
+      "name": "Rue Boileau",
+      "type": "card",
+      "color": "gold"
+    },
+    {
+      "name": "Gare de la Part-Dieu",
+      "type": "gare"
+    },
+    {
+      "name": "Rue de Abc",
+      "type": "card",
+      "color": "gold"
+    },
+    {
+      "name": "Parc gratuit",
+      "type": "parc"
+    },
+    {
+      "name": "Boul. de Belleville",
+      "type": "card",
+      "color": "green"
+    },
+    {
+      "name": "Chance",
+      "type": "chance"
+    },
+    {
+      "name": "Rue Boileau",
+      "type": "card",
+      "color": "green"
+    },
+    {
+      "name": "Gare de la Part-Dieu",
+      "type": "gare"
+    },
+    {
+      "name": "Rue de Abc",
+      "type": "card",
+      "color": "green"
+    },
+    {
+      "name": "Allez en prison",
+      "type": "gotojail"
+    },
+    {
+      "name": "Boul. de Belleville",
+      "type": "card",
+      "color": "blue"
+    },
+    {
+      "name": "Caisse de communauté",
+      "type": "caisse"
+    },
+    {
+      "name": "Rue Boileau",
+      "type": "card",
+      "color": "blue"
+    },
+    {
+      "name": "Gare de la Part-Dieu",
+      "type": "gare"
+    },
+    {
+      "name": "Rue de Abc",
+      "type": "card",
+      "color": "blue"
+    }
+  ]
+}

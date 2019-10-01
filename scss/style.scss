@@ -1,0 +1,74 @@
+* {
+  box-sizing: border-box;
+  &:focus {
+    outline: none;
+  }
+}
+
+body {
+  margin: 0;
+}
+
+.square {
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+  &>* {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+}
+
+#plateau {
+  display: grid;
+  background-color: #BFDBAE;
+}
+
+#scores {
+  background-color: #464852;
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid black;
+  justify-content: center;
+  background-color: #8FBC72;
+  text-align: center;
+  position: relative;
+  font-size: 0.7em;
+  &.house {
+    justify-content: flex-start;
+  }
+  &.parc>i {
+    font-size: 4em;
+  }
+  &.gotojail>img {
+    height: 60px;
+  }
+  &.jail>i {
+    transform: rotate(90deg);
+    border: 2px solid black;
+    font-size: 4em;
+  }
+  &>i {
+    font-size: 2em;
+  }
+  &>.color {
+    height: 20px;
+    width: 100%;
+  }
+  &>.text {
+    text-align: center;
+    margin-top: 10px;
+  }
+}
