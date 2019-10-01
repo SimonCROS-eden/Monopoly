@@ -27,11 +27,18 @@ class Plateau {
     let part = 0;
     for (var i = 0; i < this.casesLocation.length; i++) {
       let rotation = 0/* i < width - 1 ? -90 : i < width * 2 - 2 ? 0 : i < width * 3 - 3 ? 90 : 180 */;
-      this.cases.push(new Card(i, this.casesLocation[i], rotation, cardsObject.cards[i].name, cardsObject.cards[i].type, cardsObject.cards[i].color));
+      this.cases.push(new Case(i, this.casesLocation[i], rotation, cardsObject.cards[i].name, cardsObject.cards[i].type, cardsObject.cards[i].color, cardsObject.cards[i].group, cardsObject.cards[i].price));
     }
   }
 
-  getCardAt(location) {
-    return this.cases[location].name;
+  /*
+  * Return the number of case if index is superior at cases length
+  */
+  verifyCase(index) {
+    return index < this.cases.length ? index : index - this.cases.length;
+  }
+
+  getCaseAt(location) {
+    return this.cases[location];
   }
 }

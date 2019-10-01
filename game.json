@@ -1,0 +1,150 @@
+{
+  "size": 7,
+  "maxDiceScore": 6,
+  "players": [
+    "#FF0000",
+    "#0000FF"
+  ],
+  "cards": [
+    {
+      "name": "Départ (+5000€)",
+      "type": "start"
+    },
+    {
+      "name": "Boul. de Belleville",
+      "type": "house",
+      "color": "red",
+      "group": "red",
+      "price": 5000
+    },
+    {
+      "name": "Chance",
+      "type": "chance"
+    },
+    {
+      "name": "Rue Boileau",
+      "type": "house",
+      "color": "red",
+      "group": "red",
+      "price": 5000
+    },
+    {
+      "name": "Gare de la Part-Dieu",
+      "type": "gare",
+      "group": "gare",
+      "price": 5000
+    },
+    {
+      "name": "Rue de Abc",
+      "type": "house",
+      "color": "red",
+      "group": "red",
+      "price": 5500
+    },
+    {
+      "name": "Simple visite",
+      "type": "jail"
+    },
+    {
+      "name": "Boul. de Belleville",
+      "type": "house",
+      "color": "orange",
+      "group": "orange",
+      "price": 6000
+    },
+    {
+      "name": "Caisse de communauté",
+      "type": "caisse"
+    },
+    {
+      "name": "Rue Boileau",
+      "type": "house",
+      "color": "orange",
+      "group": "orange",
+      "price": 6000
+    },
+    {
+      "name": "Gare de la Part-Dieu",
+      "type": "gare",
+      "group": "gare",
+      "price": 5000
+    },
+    {
+      "name": "Rue de Abc",
+      "type": "house",
+      "color": "orange",
+      "group": "orange",
+      "price": 6500
+    },
+    {
+      "name": "Parc gratuit",
+      "type": "parc"
+    },
+    {
+      "name": "Boul. de Belleville",
+      "type": "house",
+      "color": "green",
+      "group": "green",
+      "price": 7000
+    },
+    {
+      "name": "Chance",
+      "type": "chance"
+    },
+    {
+      "name": "Rue Boileau",
+      "type": "house",
+      "color": "green",
+      "group": "green",
+      "price": 7000
+    },
+    {
+      "name": "Gare de la Part-Dieu",
+      "type": "gare",
+      "group": "gare",
+      "price": 5000
+    },
+    {
+      "name": "Rue de Abc",
+      "type": "house",
+      "color": "green",
+      "group": "green",
+      "price": 7500
+    },
+    {
+      "name": "Allez en prison",
+      "type": "gotojail"
+    },
+    {
+      "name": "Boul. de Belleville",
+      "type": "house",
+      "color": "blue",
+      "group": "blue",
+      "price": 8000
+    },
+    {
+      "name": "Caisse de communauté",
+      "type": "caisse"
+    },
+    {
+      "name": "Rue Boileau",
+      "type": "house",
+      "color": "blue",
+      "group": "blue",
+      "price": 9000
+    },
+    {
+      "name": "Gare de la Part-Dieu",
+      "type": "gare",
+      "group": "gare",
+      "price": 5000
+    },
+    {
+      "name": "Rue de Abc",
+      "type": "house",
+      "color": "blue",
+      "group": "blue",
+      "price": 10000
+    }
+  ]
+}
