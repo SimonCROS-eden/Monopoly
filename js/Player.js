@@ -24,6 +24,10 @@ class Player {
     this.money -= amount;
   }
 
+  getName() {
+    return this.name;
+  }
+
   addMoney(amount) {
     this.money += amount;
   }
@@ -55,6 +59,17 @@ class Player {
   buy() {
     if (this.case.isBuyable()) {
       this.case.buy(this);
+      gameLog((e) => {
+        let name = document.createElement("span");
+        name.innerText = this.name + " a acheté ";
+        e.appendChild(name);
+        let prop = document.createElement("span");
+        if (this.case.hasColor()) {
+          prop.style.color = this.case.getColor();
+        }
+        prop.innerText = this.case.name;
+        e.appendChild(prop);
+      });
       this.reload();
     }
   }
@@ -64,11 +79,34 @@ class Player {
     if (this.caseIndex >= this.game.caseNumber) {
       this.caseIndex -= this.game.caseNumber;
       this.addMoney(this.game.startValue);
+      gameLog((e) => {
+        let name = document.createElement("span");
+        name.innerText = this.name + " est passé par la case départ (+5000€)";
+        e.appendChild(name);
+      });
     }
     this.case = this.game.plateau.getCaseAt(this.caseIndex);
     if (this.case.isBuyable()) {
-      if (this.case.isBuyed()) {
+      if (this.case.isBought() && this.case.getOwner() != this) {
+        this.removeMoney(this.case.getRent());
+        this.case.payToOwner();
 
+        gameLog((e) => {
+          let name = document.createElement("span");
+          name.innerText = this.name + " est tombé chez " + this.case.getOwner().getName() + " ";
+          e.appendChild(name);
+
+          let prop = document.createElement("span");
+          if (this.case.hasColor()) {
+            prop.style.color = this.case.getColor();
+          }
+          prop.innerText = this.case.name + " ";
+          e.appendChild(prop);
+
+          name = document.createElement("span");
+          name.innerText = "(" + this.case.getRent() + "€)";
+          e.appendChild(name);
+        });
       } else {
         buyElement.disabled = false;
       }

@@ -11,6 +11,7 @@ var maxPlayersElements = document.querySelectorAll(".maxPlayers");
 var playersCountElements = document.querySelectorAll(".playersCount");
 var playersInQueueListElement = document.getElementById("playersInQueueList");
 var joinForm = document.querySelector("#usernameSelect form");
+var logElement = document.getElementById("logs");
 
 let xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function() {
@@ -21,3 +22,10 @@ xmlhttp.onreadystatechange = function() {
 };
 xmlhttp.open("GET", "/game.json", true);
 xmlhttp.send();
+
+function gameLog(callback) {
+  let e = document.createElement("p");
+  callback(e);
+  logElement.appendChild(e);
+  logElement.scrollTop = logElement.scrollHeight;
+}

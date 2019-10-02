@@ -34,7 +34,11 @@ class Monopoly {
   }
 
   start = () => {
-    usernameSelectPane.classList.add("hidden");
-    this.game = new Game(this.playersInQueue, this.gameRules);
+    if (this.playersInQueue.length >= 2) {
+      usernameSelectPane.classList.add("hidden");
+      this.game = new Game(this.playersInQueue, this.gameRules);
+    } else {
+      alert("Minimum de 2 joueurs");
+    }
   }
 }

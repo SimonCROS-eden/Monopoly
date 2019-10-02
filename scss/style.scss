@@ -105,7 +105,6 @@ main {
   flex-wrap: wrap;
 
   #playerPane {
-    height: 100%;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -261,6 +260,15 @@ main {
   }
 }
 
+#logs {
+  width: 100%;
+  margin-top: auto;
+  overflow-y: auto;
+  max-height: 250px;
+  &>p {
+    margin: 5px 0;
+  }
+}
 
 @media (min-width: 1024px) {
   .case {

@@ -74,13 +74,13 @@ class Case extends Card {
             for (let i = 0; i < 6; i++) {
               let p = document.createElement("li");
               if (i == 0) {
-                p.innerText = "Terrain nu : " + (this.price / 10) + "€";
+                p.innerText = "Terrain nu : " + this.getRent(i) + "€";
               } else if (i == 5) {
-                p.innerText = "Hôtel : " + (this.price / 5) + "€";
+                p.innerText = "Hôtel : " + this.getRent(i) + "€";
               } else if (i == 1) {
-                p.innerText = i + " maison : " + (this.price / 10 + 100) + "€";
+                p.innerText = i + " maison : " + this.getRent(i) + "€";
               } else {
-                p.innerText = i + " maisons : " + (this.price / 10 + 100 * i) + "€";
+                p.innerText = i + " maisons : " + this.getRent(i) + "€";
               }
               list.appendChild(p);
             }
