@@ -33,30 +33,46 @@ class Player {
       this.properties[property.group] = [];
     }
     this.properties[property.group].push(property);
-    document.getElementById("player" + (parseInt(this.name) + 1)).appendChild(property.getElement(true));
+    this.reloadProperties();
+  }
+
+  reloadProperties() {
+    let e = document.getElementById("player" + (parseInt(this.name) + 1));
+    e.innerHTML = "";
+    for (let key of Object.keys(this.properties).sort()) {
+      for (let p of this.properties[key]) {
+        e.appendChild(p.getElement(true));
+      }
+    }
   }
 
   reload() {
     this.moneyElement.innerText = this.name + " : " + this.money + "€";
-    this.element.style.left = this.case.element.offsetLeft + "px";
-    this.element.style.top = this.case.element.offsetTop + "px";
+    this.element.style.left = (this.case.element.offsetLeft + this.case.element.clientWidth / 2 - this.element.clientWidth / 2) + "px";
+    this.element.style.top = (this.case.element.offsetTop + this.case.element.clientHeight / 2 - this.element.clientHeight / 2) + "px";
   }
 
   buy() {
     if (this.case.isBuyable()) {
       this.case.buy(this);
       this.reload();
+    } else if (this.case.isGiver()) {
     }
   }
 
   forward = (n) => {
     this.caseIndex += n;
-    this.caseIndex = this.game.plateau.verifyCase(this.caseIndex);
+    if (this.caseIndex >= this.game.caseNumber) {
+      this.caseIndex -= this.game.caseNumber;
+      this.addMoney(this.game.startValue);
+    }
     this.case = this.game.plateau.getCaseAt(this.caseIndex);
-    if (this.case.isBuyed()) {
+    if (this.case.isBuyable()) {
+      if (this.case.isBuyed()) {
 
-    } else if (this.case.isBuyable()) {
-      buyElement.disabled = false;
+      } else {
+        buyElement.disabled = false;
+      }
     }
     this.reload();
   }

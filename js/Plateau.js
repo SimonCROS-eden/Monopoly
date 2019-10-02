@@ -1,8 +1,9 @@
 class Plateau {
 
-  constructor(width) {
+  constructor(width, game) {
     this.casesLocation = [];
     this.cases = [];
+    this.game = game;
     plateauElement.style.gridTemplate = "repeat(" + (width) + ", 1fr) / repeat(" + (width) + ", 1fr)";
     for (var direction = 0; direction < 4; direction++) {
       for (var i = 0; i < width - 1; i++) {
@@ -29,13 +30,6 @@ class Plateau {
       let rotation = 0/* i < width - 1 ? -90 : i < width * 2 - 2 ? 0 : i < width * 3 - 3 ? 90 : 180 */;
       this.cases.push(new Case(i, this.casesLocation[i], rotation, cardsObject.cards[i].name, cardsObject.cards[i].type, cardsObject.cards[i].color, cardsObject.cards[i].group, cardsObject.cards[i].price));
     }
-  }
-
-  /*
-  * Return the number of case if index is superior at cases length
-  */
-  verifyCase(index) {
-    return index < this.cases.length ? index : index - this.cases.length;
   }
 
   getCaseAt(location) {

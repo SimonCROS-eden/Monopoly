@@ -1,10 +1,14 @@
 class Game {
 
   actualPlayerIndex = -1;
+  startValue = 0;
+  caseNumber = 0;
 
   constructor(players) {
     this.players = [];
-    this.plateau = new Plateau(cardsObject.size);
+    this.startValue = cardsObject.startValue;
+    this.caseNumber = (cardsObject.size - 1) * 4;
+    this.plateau = new Plateau(cardsObject.size, this);
 
     for (let i = 0; i < players; i++) {
       this.players.push(new Player(i, 50000, cardsObject.players[i], this));

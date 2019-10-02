@@ -1,4 +1,5 @@
 class Case extends Card {
+
   constructor(caseNumber, caseLocation, rotation, caseName, caseType, caseColor, group, price) {
     super(caseName, caseType, group, price, caseColor);
 
@@ -77,9 +78,9 @@ class Case extends Card {
               } else if (i == 5) {
                 p.innerText = "Hôtel : " + (this.price / 5) + "€";
               } else if (i == 1) {
-                p.innerText = i + " maison : " + Math.round((this.price / 10)) + "€";
+                p.innerText = i + " maison : " + (this.price / 10 + 100) + "€";
               } else {
-                p.innerText = i + " maisons : " + Math.round((this.price / (10 - i + 1))) + "€";
+                p.innerText = i + " maisons : " + (this.price / 10 + 100 * i) + "€";
               }
               list.appendChild(p);
             }
@@ -87,9 +88,9 @@ class Case extends Card {
             for (let i = 0; i < 4; i++) {
               let p = document.createElement("li");
               if (i == 0) {
-                p.innerText = (i + 1) + " gare : " + Math.round((this.price / 10)) + "€";
+                p.innerText = (i + 1) + " gare : " + (this.price / 10) + "€";
               } else {
-                p.innerText = (i + 1) + " gares : " + Math.round((this.price / (10 - i + 1))) + "€";
+                p.innerText = (i + 1) + " gares : " + (this.price / 10 + 100 * i) + "€";
               }
               list.appendChild(p);
             }
