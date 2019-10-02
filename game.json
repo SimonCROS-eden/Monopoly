@@ -62,7 +62,7 @@
     },
     {
       "name": "Caisse de communauté",
-      "type": "caisse"
+      "type": "box"
     },
     {
       "name": "Rue Boileau",
@@ -132,7 +132,7 @@
     },
     {
       "name": "Caisse de communauté",
-      "type": "caisse"
+      "type": "box"
     },
     {
       "name": "Rue Boileau",

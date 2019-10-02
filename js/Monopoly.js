@@ -1,7 +1,7 @@
 class Monopoly {
 
   gameRules = {};
-  playersInQueue = [];
+  playersInQueue = ["Simon", "Solal"];
 
   constructor(gameRules) {
     this.gameRules = gameRules;

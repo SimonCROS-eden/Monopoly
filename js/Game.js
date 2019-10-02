@@ -38,4 +38,8 @@ class Game {
     if (this.actualPlayerIndex >= this.players.length) this.actualPlayerIndex = 0;
     this.players[this.actualPlayerIndex].reloadPane();
   }
+
+  getLuckCard() {
+      
+  }
 }
