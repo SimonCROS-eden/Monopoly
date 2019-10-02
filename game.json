@@ -148,11 +148,28 @@
       "price": 5000
     },
     {
-      "name": "Rue de Abc",
+      "name": "Rue de la Paix",
       "type": "house",
       "color": "blue",
       "group": 4,
       "price": 10000
+    }
+  ],
+  "lucks": [
+    {
+      "message": "Vous gagnez le 3ème prix de beauté, vous gagnez 3000€ !",
+      "action": "give",
+      "value": 3000
+    },
+    {
+      "message": "Une lettre mystérieuse vous donne rendez-vous rue de la Paix.",
+      "action": "move",
+      "value": "Rue de la Paix"
+    },
+    {
+      "message": "Vous faites tomber 2500€ de votre porte-monnaie ;(",
+      "action": "lose",
+      "value": 2500
     }
   ]
 }
