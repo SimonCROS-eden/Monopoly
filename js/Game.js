@@ -3,15 +3,20 @@ class Game {
   actualPlayerIndex = -1;
   startValue = 0;
   caseNumber = 0;
+  gameRules = {};
 
-  constructor(players) {
+  constructor(players, gameRules) {
     this.players = [];
-    this.startValue = cardsObject.startValue;
-    this.caseNumber = (cardsObject.size - 1) * 4;
-    this.plateau = new Plateau(cardsObject.size, this);
+    this.startValue = gameRules.startValue;
+    this.caseNumber = (gameRules.size - 1) * 4;
+    this.gameRules = gameRules;
+    this.plateau = new Plateau(gameRules.size, this.gameRules);
 
-    for (let i = 0; i < players; i++) {
-      this.players.push(new Player(i, 50000, cardsObject.players[i], this));
+    launchElement.addEventListener("click", this.playRandom);
+    buyElement.addEventListener("click", this.buy);
+
+    for (let i = 0; i < players.length; i++) {
+      this.players.push(new Player(players[i], 50000, gameRules.players[i], this));
     }
     this.actualPlayer = players[0];
   }
@@ -19,7 +24,7 @@ class Game {
   playRandom = () => {
     buyElement.disabled = true;
     this.nextPlayer();
-    let number = Math.floor(Math.random() * (cardsObject.maxDiceScore - 1 + 1)) + 1;
+    let number = Math.floor(Math.random() * (this.gameRules.maxDiceScore - 1 + 1)) + 1;
     this.players[this.actualPlayerIndex].forward(number);
   }
 
@@ -31,5 +36,6 @@ class Game {
   nextPlayer() {
     this.actualPlayerIndex++;
     if (this.actualPlayerIndex >= this.players.length) this.actualPlayerIndex = 0;
+    this.players[this.actualPlayerIndex].reloadPane();
   }
 }

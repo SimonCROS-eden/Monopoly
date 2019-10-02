@@ -33,15 +33,15 @@ class Player {
       this.properties[property.group] = [];
     }
     this.properties[property.group].push(property);
-    this.reloadProperties();
+    this.reloadPane();
   }
 
-  reloadProperties() {
-    let e = document.getElementById("player" + (parseInt(this.name) + 1));
-    e.innerHTML = "";
+  reloadPane() {
+    playerPaneName.innerText = this.name;
+    playerPaneProperties.innerHTML = "";
     for (let key of Object.keys(this.properties).sort()) {
       for (let p of this.properties[key]) {
-        e.appendChild(p.getElement(true));
+        playerPaneProperties.appendChild(p.getElement(true));
       }
     }
   }
@@ -56,7 +56,6 @@ class Player {
     if (this.case.isBuyable()) {
       this.case.buy(this);
       this.reload();
-    } else if (this.case.isGiver()) {
     }
   }
 

@@ -2,9 +2,16 @@
   "size": 7,
   "maxDiceScore": 6,
   "startValue": 5000,
+  "maxPlayers": 6,
   "players": [
     "#FF0000",
-    "#0000FF"
+    "#0000FF",
+    "#44a144",
+    "#FF00FF",
+    "#f2ff00",
+    "#ffb800",
+    "#20f0be",
+    "#8c1a8f"
   ],
   "cards": [
     {
@@ -32,7 +39,7 @@
     {
       "name": "Gare de la Part-Dieu",
       "type": "gare",
-      "group": 4,
+      "group": 5,
       "price": 5000
     },
     {
@@ -67,7 +74,7 @@
     {
       "name": "Gare de la Part-Dieu",
       "type": "gare",
-      "group": 4,
+      "group": 5,
       "price": 5000
     },
     {
@@ -102,7 +109,7 @@
     {
       "name": "Gare de la Part-Dieu",
       "type": "gare",
-      "group": 4,
+      "group": 5,
       "price": 5000
     },
     {
@@ -137,7 +144,7 @@
     {
       "name": "Gare de la Part-Dieu",
       "type": "gare",
-      "group": 4,
+      "group": 5,
       "price": 5000
     },
     {

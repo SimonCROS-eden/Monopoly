@@ -5,12 +5,96 @@
   }
 }
 
+html {
+  font-family: Arial, sans-serif;
+}
+
 body {
   margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+}
+
+#usernameSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(#919191, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 10;
+  &.hidden {
+    display: none;
+  }
+  &>div {
+    background-color: rgba(#ffffff, 0.8);
+    width: 90%;
+    height: 80%;
+    border-radius: 20px;
+    display: flex;
+    h2 {
+      margin: 0;
+    }
+    &>* {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+    }
+    button {
+      background-color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      padding: 5px 15px;
+      border: none;
+      font-size: 1.2em;
+    }
+    &>.usernameForm {
+      justify-content: center;
+      flex: 1;
+      border-right: 1px solid black;
+      &>* {
+        margin: 10px 0;
+        font-size: 1.5em;
+        background: white;
+        border: none;
+        border-radius: 5px;
+      }
+      &>input {
+        text-align: center;
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: none;
+        width: 200px;
+      }
+    }
+    &>.players {
+      border-left: 1px solid black;
+      flex: 1;
+      &>ul {
+        background-color: white;
+        width: 100%;
+        overflow-y: auto;
+        flex: 1;
+        list-style-type: none;
+        padding: 10px 5px;
+        margin: 10px 0;
+        border: 1px solid black;
+        border-radius: 5px;
+
+        &>li {
+          border-bottom: 1px solid rgb(130, 130, 130);
+          padding: 5px 0;
+        }
+      }
+    }
+  }
 }
 
 main {
@@ -20,13 +104,20 @@ main {
   justify-content: center;
   flex-wrap: wrap;
 
-  &>.player {
+  #playerPane {
     height: 100%;
     flex: 1;
     display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    &>.properties {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      margin: 10px 0;
+    }
   }
 }
 
@@ -151,7 +242,7 @@ main {
 
 @media (min-width: 768px) {
   .squareContainer {
-    width: 75%;
+    width: 50%;
   }
   .case {
     font-size: 0.7em;
@@ -174,8 +265,5 @@ main {
 @media (min-width: 1024px) {
   .case {
     font-size: 0.9em;
-  }
-  .squareContainer {
-    width: 48%;
   }
 }

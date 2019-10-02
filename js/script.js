@@ -1,22 +1,23 @@
-var cardsObject = {};
-let xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function() {
-  if (this.readyState == 4 && this.status == 200) {
-    cardsObject = JSON.parse(this.responseText);
-    start();
-  }
-};
-xmlhttp.open("GET", "/game.json", true);
-xmlhttp.send();
-
-var game;
 var plateauElement = document.getElementById("plateau");
 var scoresElement = document.getElementById("scores");
 var launchElement = document.getElementById("buttonLaunch");
 var buyElement = document.getElementById("buy");
-function start() {
-  game = new Game(2);
+var playerPane = document.getElementById("playerPane");
+var playerPaneName = playerPane.querySelector(".name");
+var playerPaneProperties = playerPane.querySelector(".properties");
+var usernameSelectPane = document.getElementById("usernameSelect");
+var launchGameButton = document.getElementById("launchGame");
+var maxPlayersElements = document.querySelectorAll(".maxPlayers");
+var playersCountElements = document.querySelectorAll(".playersCount");
+var playersInQueueListElement = document.getElementById("playersInQueueList");
+var joinForm = document.querySelector("#usernameSelect form");
 
-  launchElement.addEventListener("click", game.playRandom);
-  buyElement.addEventListener("click", game.buy);
-}
+let xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    let cardsObject = JSON.parse(this.responseText);
+    new Monopoly(cardsObject);
+  }
+};
+xmlhttp.open("GET", "/game.json", true);
+xmlhttp.send();

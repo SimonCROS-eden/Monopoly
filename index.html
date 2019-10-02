@@ -10,25 +10,39 @@
   <body>
     <header id="scores"></header>
     <main>
-      <section id="player1" class="player">
-
+      <section id="usernameSelect">
+        <div>
+          <form method="GET" action="" class="usernameForm">
+            <input autofocus type="text" name="username" placeholder="Pseudo">
+            <button type="submit" name="validate">Rejoindre</button>
+          </form>
+          <div class="players">
+            <h2>Joueurs (<span class="playersCount"></span>/<span class="maxPlayers"></span>)</h2>
+            <ul id="playersInQueueList">
+            </ul>
+            <button type="button" name="start" id="launchGame">Lancer la partie</button>
+          </div>
+        </div>
+      </section>
+      <section id="playerPane">
+        <h2 class="name"></h2>
+        <div class="properties"></div>
+        <button type="button" name="de" id="buttonLaunch">Jouer</button>
+        <button type="button" name="de" id="buy" disabled>Acheter</button>
       </section>
       <div class="squareContainer">
         <div class="square">
-          <section id="plateau"></section>
+          <section id="plateau">
+          </section>
         </div>
       </div>
-      <section id="player2" class="player">
-
-      </section>
     </main>
-    <button type="button" name="de" id="buttonLaunch">Jouer</button>
-    <button type="button" name="de" id="buy" disabled>Acheter</button>
   </body>
   <script type="text/javascript" src="/js/Player.js"></script>
   <script type="text/javascript" src="/js/Card.js"></script>
   <script type="text/javascript" src="/js/Case.js"></script>
   <script type="text/javascript" src="/js/Plateau.js"></script>
   <script type="text/javascript" src="/js/Game.js"></script>
+  <script type="text/javascript" src="/js/Monopoly.js"></script>
   <script type="text/javascript" src="/js/script.js"></script>
 </html>
