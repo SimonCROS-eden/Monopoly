@@ -1,11 +1,24 @@
 class Case extends Card {
 
-  constructor(caseNumber, caseLocation, rotation, caseName, caseType, caseColor, group, price) {
-    super(caseName, caseType, group, price, caseColor);
+  colorElement = null;
+
+  constructor(caseNumber, caseLocation, rotation, caseName, caseType, group, price, gameRules) {
+    super(caseName, caseType, group, price, gameRules);
 
     this.location = caseLocation;
     this.element = this.getElement(false);
     plateauElement.appendChild(this.element);
+  }
+
+  addHouse() {
+    super.addHouse();
+    this.refresh();
+  }
+
+  refresh() {
+    if (this.type == "house") {
+      this.colorElement.innerText = "*".repeat(this.getHouses());
+    }
   }
 
   getElement(card) {
@@ -24,11 +37,13 @@ class Case extends Card {
       if (this.type == "house") {
         element.classList.add("house");
 
-        let color = document.createElement("div");
-        color.style.backgroundColor = this.color;
-        color.classList.add("color");
-        element.appendChild(color);
-        this.colorElement = this.color;
+        let colorElement = document.createElement("div");
+        colorElement.style.backgroundColor = this.color;
+        colorElement.classList.add("color");
+        element.appendChild(colorElement);
+        if (!card) {
+          this.colorElement = colorElement;
+        }
       } else if (this.type == "parc") {
         element.classList.add("parc");
 
@@ -58,7 +73,7 @@ class Case extends Card {
         element.appendChild(car);
       }
 
-      let text = document.createElement("p");
+      let text = document.createElement("h3");
       text.innerText = this.name;
       text.classList.add("text");
       element.appendChild(text);
@@ -96,6 +111,15 @@ class Case extends Card {
             }
           }
           element.appendChild(list);
+          if (this.type == "house") {
+            let buttonRemove = document.createElement("p");
+            buttonRemove.innerText = "Prix par maison : " + this.getHousePrice() + "€";
+            element.appendChild(buttonRemove);
+          }
+          let buttonRemove = document.createElement("button");
+          buttonRemove.innerText = "Vendre (" + this.getSellPrice() + "€)";
+          buttonRemove.addEventListener("click", () => {this.remove();});
+          element.appendChild(buttonRemove);
         }
       }
     } else {

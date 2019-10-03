@@ -12,6 +12,7 @@ var playersCountElements = document.querySelectorAll(".playersCount");
 var playersInQueueListElement = document.getElementById("playersInQueueList");
 var joinForm = document.querySelector("#usernameSelect form");
 var logElement = document.getElementById("logs");
+var houseButton = document.getElementById("house");
 
 let xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function() {

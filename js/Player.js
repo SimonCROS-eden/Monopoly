@@ -20,16 +20,36 @@ class Player {
     this.reload();
   }
 
-  removeMoney(amount) {
-    this.money -= amount;
+  house() {
+    if (this.hasAllOfGroupOf(this.case)) {
+      let minus = null;
+      for (let prop of this.properties[this.case.getGroupNumber()]) {
+        if (minus == null) minus = prop;
+        else if (minus.getHouses() > prop.getHouses()) minus = prop;
+      }
+      minus.addHouse();
+    }
   }
 
-  getName() {
-    return this.name;
+  hasAllOfGroupOf(property) {
+    if (this.properties[property.getGroupNumber()] && this.properties[property.getGroupNumber()].length == property.getGroup().size) {
+      return true;
+    }
+    return false;
+  }
+
+  removeMoney(amount) {
+    this.money -= amount;
+    this.reload();
   }
 
   addMoney(amount) {
     this.money += amount;
+    this.reload();
+  }
+
+  getName() {
+    return this.name;
   }
 
   addProperty(property) {
@@ -40,12 +60,41 @@ class Player {
     this.reloadPane();
   }
 
+  removeProperty(property) {
+    if (!this.properties[property.group] || property.getOwner() != this) {
+      return;
+    }
+    this.properties[property.group].splice(this.properties[property.group].indexOf(property), 1);
+    gameLog((e) => {
+      let name = document.createElement("span");
+      name.innerText = this.name + " revendu ";
+      e.appendChild(name);
+      let prop = document.createElement("span");
+      if (this.case.hasColor()) {
+        prop.style.color = property.getColor();
+      }
+      prop.innerText = property.name + " ";
+      e.appendChild(prop);
+      let bank = document.createElement("span");
+      bank.innerText = "à la banque.";
+      e.appendChild(bank);
+    });
+    this.reloadPane();
+    this.reload();
+  }
+
   reloadPane() {
     playerPaneName.innerText = this.name;
     playerPaneProperties.innerHTML = "";
     for (let key of Object.keys(this.properties).sort()) {
       for (let p of this.properties[key]) {
         playerPaneProperties.appendChild(p.getElement(true));
+      }
+    }
+
+    if (this.case.type == "house") {
+      if (this.hasAllOfGroupOf(this.case)) {
+        houseButton.disabled = false;
       }
     }
   }
@@ -71,6 +120,7 @@ class Player {
         e.appendChild(prop);
       });
       this.reload();
+      this.reloadPane();
     }
   }
 
@@ -112,5 +162,6 @@ class Player {
       }
     }
     this.reload();
+    this.reloadPane();
   }
 }

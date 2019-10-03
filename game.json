@@ -1,8 +1,9 @@
 {
   "size": 7,
-  "maxDiceScore": 6,
+  "maxDiceScore": 1,
   "startValue": 5000,
   "maxPlayers": 6,
+  "startMoney": 30000,
   "players": [
     "#FF0000",
     "#0000FF",
@@ -13,6 +14,28 @@
     "#20f0be",
     "#8c1a8f"
   ],
+  "groups": {
+    "1": {
+      "color": "red",
+      "housePrice": 500,
+      "size": 3
+    },
+    "2": {
+      "color": "orange",
+      "housePrice": 800,
+      "size": 3
+    },
+    "3": {
+      "color": "green",
+      "housePrice": 1000,
+      "size": 3
+    },
+    "4": {
+      "color": "blue",
+      "housePrice": 1500,
+      "size": 3
+    }
+  },
   "cards": [
     {
       "name": "Départ (+5000€)",
@@ -21,7 +44,6 @@
     {
       "name": "Boul. de Belleville",
       "type": "house",
-      "color": "red",
       "group": 1,
       "price": 5000
     },
@@ -32,20 +54,18 @@
     {
       "name": "Rue Boileau",
       "type": "house",
-      "color": "red",
       "group": 1,
       "price": 5000
     },
     {
       "name": "Gare de la Part-Dieu",
       "type": "gare",
-      "group": 5,
+      "group": 1000,
       "price": 5000
     },
     {
       "name": "Rue de Abc",
       "type": "house",
-      "color": "red",
       "group": 1,
       "price": 5500
     },
@@ -56,7 +76,6 @@
     {
       "name": "Boul. de Belleville",
       "type": "house",
-      "color": "orange",
       "group": 2,
       "price": 6000
     },
@@ -67,20 +86,18 @@
     {
       "name": "Rue Boileau",
       "type": "house",
-      "color": "orange",
       "group": 2,
       "price": 6000
     },
     {
       "name": "Gare de la Part-Dieu",
       "type": "gare",
-      "group": 5,
+      "group": 1000,
       "price": 5000
     },
     {
       "name": "Rue de Abc",
       "type": "house",
-      "color": "orange",
       "group": 2,
       "price": 6500
     },
@@ -91,7 +108,6 @@
     {
       "name": "Boul. de Belleville",
       "type": "house",
-      "color": "green",
       "group": 3,
       "price": 7000
     },
@@ -102,20 +118,18 @@
     {
       "name": "Rue Boileau",
       "type": "house",
-      "color": "green",
       "group": 3,
       "price": 7000
     },
     {
       "name": "Gare de la Part-Dieu",
       "type": "gare",
-      "group": 5,
+      "group": 1000,
       "price": 5000
     },
     {
       "name": "Rue de Abc",
       "type": "house",
-      "color": "green",
       "group": 3,
       "price": 7500
     },
@@ -126,7 +140,6 @@
     {
       "name": "Boul. de Belleville",
       "type": "house",
-      "color": "blue",
       "group": 4,
       "price": 8000
     },
@@ -137,20 +150,18 @@
     {
       "name": "Rue Boileau",
       "type": "house",
-      "color": "blue",
       "group": 4,
       "price": 9000
     },
     {
       "name": "Gare de la Part-Dieu",
       "type": "gare",
-      "group": 5,
+      "group": 1000,
       "price": 5000
     },
     {
       "name": "Rue de la Paix",
       "type": "house",
-      "color": "blue",
       "group": 4,
       "price": 10000
     }

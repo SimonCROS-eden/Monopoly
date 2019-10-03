@@ -14,15 +14,18 @@ class Game {
 
     launchElement.addEventListener("click", this.playRandom);
     buyElement.addEventListener("click", this.buy);
+    houseButton.addEventListener("click", this.addHouse);
 
     for (let i = 0; i < players.length; i++) {
-      this.players.push(new Player(players[i], 50000, gameRules.players[i], this));
+      this.players.push(new Player(players[i], this.gameRules.startMoney, gameRules.players[i], this));
     }
     this.actualPlayer = players[0];
+    this.players[0].reloadPane();
   }
 
   playRandom = () => {
     buyElement.disabled = true;
+    houseButton.disabled = true;
     this.nextPlayer();
     let number = Math.floor(Math.random() * (this.gameRules.maxDiceScore - 1 + 1)) + 1;
     this.players[this.actualPlayerIndex].forward(number);
@@ -33,6 +36,10 @@ class Game {
     buyElement.disabled = true;
   }
 
+  addHouse = () => {
+    this.players[this.actualPlayerIndex].house();
+  }
+
   nextPlayer() {
     this.actualPlayerIndex++;
     if (this.actualPlayerIndex >= this.players.length) this.actualPlayerIndex = 0;
@@ -40,6 +47,6 @@ class Game {
   }
 
   getLuckCard() {
-      
+
   }
 }
