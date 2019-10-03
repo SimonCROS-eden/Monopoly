@@ -71,6 +71,20 @@ class Game {
     this.replayBool = true;
   }
 
+  lose() {
+    for (let p of this.players) {
+      if (p.money <= 0) {
+        this.players.splice(this.players.indexOf(p), 1);
+        if (this.players.length == 1) {
+          break;
+        }
+      }
+    }
+    if (this.players.length == 1) {
+      showOverlay("Gagné", this.players[0] + " a gagné !!!");
+    }
+  }
+
   getBoxCard() {
     let box = this.boxs[Math.floor(Math.random()*this.boxs.length)];
     showOverlay("Caisse de communauté", box.message, "Ok !", () => {

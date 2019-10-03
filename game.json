@@ -1,6 +1,6 @@
 {
   "size": 7,
-  "maxDiceScore": 6,
+  "maxDiceScore": 1,
   "startValue": 5000,
   "maxPlayers": 6,
   "startMoney": 30000,
@@ -50,8 +50,10 @@
       "price": 5000
     },
     {
-      "name": "Chance",
-      "type": "luck"
+      "name": "Gare de la Part-Dieu",
+      "type": "gare",
+      "group": 1000,
+      "price": 5000
     },
     {
       "name": "Rue Boileau",
@@ -60,10 +62,8 @@
       "price": 5000
     },
     {
-      "name": "Gare de la Part-Dieu",
-      "type": "gare",
-      "group": 1000,
-      "price": 5000
+      "name": "Chance",
+      "type": "luck"
     },
     {
       "name": "Rue de Abc",

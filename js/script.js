@@ -41,8 +41,12 @@ function showOverlay(title, message, quitButton, callback) {
   overlay.classList.add("show");
   overlayTitle.innerText = title;
   overlayMessage.innerText = message;
-  overlayButton.innerText = quitButton;
-  overlayCallback = callback;
+  if (quitButton) {
+    overlayButton.innerText = quitButton;
+    if (callback) {
+      overlayCallback = callback;
+    }
+  }
 }
 overlayButton.addEventListener("click", () => {
   overlay.classList.remove("show");

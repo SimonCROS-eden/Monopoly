@@ -49,8 +49,15 @@ class Card {
   }
 
   getRent(houses) {
-    let h = houses != null ? houses : this.getHouses();
-    return Math.floor((this.getPrice() / 6 + 100 * h) / 10) * 10;
+    let rent = 0;
+    if (this.type == "gare") {
+      let ownerGares = this.getOwner().properties[1000].length;
+      rent = Math.floor((this.getPrice() / 6 + 100 * ownerGares) / 10) * 10;
+    } else {
+      let h = houses != null ? houses : this.getHouses();
+      rent = Math.floor((this.getPrice() / 6 + 100 * h) / 10) * 10;
+    }
+    return rent;
   }
 
   getPrice() {

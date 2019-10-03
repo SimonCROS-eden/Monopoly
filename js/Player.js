@@ -41,6 +41,10 @@ class Player {
 
   removeMoney(amount) {
     this.money -= amount;
+    if (this.money < 0) {
+      this.money = 0;
+      this.game.lose();
+    }
     this.reload();
   }
 
