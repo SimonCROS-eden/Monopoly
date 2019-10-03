@@ -4,6 +4,9 @@ class Game {
   startValue = 0;
   caseNumber = 0;
   gameRules = {};
+  lucks = [];
+  boxs = [];
+  replayBool = false;
 
   constructor(players, gameRules) {
     this.players = [];
@@ -11,6 +14,8 @@ class Game {
     this.caseNumber = (gameRules.size - 1) * 4;
     this.gameRules = gameRules;
     this.plateau = new Plateau(gameRules.size, this.gameRules);
+    this.lucks = this.gameRules.lucks;
+    this.boxs = this.gameRules.boxs;
 
     launchElement.addEventListener("click", this.playRandom);
     buyElement.addEventListener("click", this.buy);
@@ -26,7 +31,10 @@ class Game {
   playRandom = () => {
     buyElement.disabled = true;
     houseButton.disabled = true;
-    this.nextPlayer();
+    if (!this.replayBool) {
+      this.nextPlayer();
+    }
+    this.replayBool = false;
     let number = Math.floor(Math.random() * (this.gameRules.maxDiceScore - 1 + 1)) + 1;
     this.players[this.actualPlayerIndex].forward(number);
   }
@@ -47,6 +55,32 @@ class Game {
   }
 
   getLuckCard() {
+    let luck = this.lucks[Math.floor(Math.random()*this.lucks.length)];
+    showOverlay("Carte chance", luck.message, "Ok !", () => {
+      if (luck.action == "give") {
+        this.players[this.actualPlayerIndex].addMoney(luck.value);
+      } else if (luck.action == "lose") {
+        this.players[this.actualPlayerIndex].removeMoney(luck.value);
+      } else if (luck.action == "move") {
+        this.players[this.actualPlayerIndex].move(luck.value);
+      }
+    });
+  }
 
+  replay() {
+    this.replayBool = true;
+  }
+
+  getBoxCard() {
+    let box = this.boxs[Math.floor(Math.random()*this.boxs.length)];
+    showOverlay("Caisse de communauté", box.message, "Ok !", () => {
+      if (box.action == "give") {
+        this.players[this.actualPlayerIndex].addMoney(box.value);
+      } else if (box.action == "lose") {
+        this.players[this.actualPlayerIndex].removeMoney(box.value);
+      } else if (box.action == "move") {
+        this.players[this.actualPlayerIndex].move(box.value);
+      }
+    });
   }
 }

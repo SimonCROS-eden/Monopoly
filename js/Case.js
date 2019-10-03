@@ -17,7 +17,18 @@ class Case extends Card {
 
   refresh() {
     if (this.type == "house") {
-      this.colorElement.innerText = "*".repeat(this.getHouses());
+      this.colorElement.innerHTML = "";
+      if (this.houses < 5) {
+        for (let i = 0; i < this.getHouses(); i++) {
+          let h = document.createElement("span");
+          h.classList.add("house");
+          this.colorElement.appendChild(h);
+        }
+      } else {
+        let h = document.createElement("span");
+        h.classList.add("hotel");
+        this.colorElement.appendChild(h);
+      }
     }
   }
 
@@ -35,7 +46,7 @@ class Case extends Card {
 
     if (this.type != "chance" && this.type != "caisse") {
       if (this.type == "house") {
-        element.classList.add("house");
+        element.classList.add("houseCase");
 
         let colorElement = document.createElement("div");
         colorElement.style.backgroundColor = this.color;

@@ -13,6 +13,11 @@ var playersInQueueListElement = document.getElementById("playersInQueueList");
 var joinForm = document.querySelector("#usernameSelect form");
 var logElement = document.getElementById("logs");
 var houseButton = document.getElementById("house");
+var overlay = document.getElementById("overlay");
+var overlayTitle = document.getElementById("overlay_title");
+var overlayMessage = document.getElementById("overlay_message");
+var overlayButton = document.getElementById("overlay_close");
+var diceNumber = document.getElementById("dice_number");
 
 let xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function() {
@@ -30,3 +35,22 @@ function gameLog(callback) {
   logElement.appendChild(e);
   logElement.scrollTop = logElement.scrollHeight;
 }
+
+let overlayCallback = null;
+function showOverlay(title, message, quitButton, callback) {
+  overlay.classList.add("show");
+  overlayTitle.innerText = title;
+  overlayMessage.innerText = message;
+  overlayButton.innerText = quitButton;
+  overlayCallback = callback;
+}
+overlayButton.addEventListener("click", () => {
+  overlay.classList.remove("show");
+  overlayTitle.innerText = "";
+  overlayMessage.innerText = "";
+  overlayButton.innerText = "";
+  if (overlayCallback) {
+    overlayCallback();
+    overlayCallback = null;
+  }
+});

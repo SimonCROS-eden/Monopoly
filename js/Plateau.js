@@ -1,5 +1,7 @@
 class Plateau {
 
+  jailLocation = 0;
+
   constructor(width, gameRules) {
     this.casesLocation = [];
     this.cases = [];
@@ -28,6 +30,9 @@ class Plateau {
     }
     for (var i = 0; i < this.casesLocation.length; i++) {
       let rotation = 0/* i < width - 1 ? -90 : i < width * 2 - 2 ? 0 : i < width * 3 - 3 ? 90 : 180 */;
+      if (this.gameRules.cards[i].type == "jail") {
+        this.jailLocation = i;
+      }
       this.cases.push(new Case(i, this.casesLocation[i], rotation, this.gameRules.cards[i].name, this.gameRules.cards[i].type, this.gameRules.cards[i].group, this.gameRules.cards[i].price, this.gameRules));
     }
     let lucks = document.createElement("div");

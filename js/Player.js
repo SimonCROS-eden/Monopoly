@@ -1,6 +1,7 @@
 class Player {
 
   properties = {};
+  jailTurn = 0;
 
   constructor(name, money, color, game) {
     this.name = name;
@@ -103,6 +104,13 @@ class Player {
     this.moneyElement.innerText = this.name + " : " + this.money + "€";
     this.element.style.left = (this.case.element.offsetLeft + this.case.element.clientWidth / 2 - this.element.clientWidth / 2) + "px";
     this.element.style.top = (this.case.element.offsetTop + this.case.element.clientHeight / 2 - this.element.clientHeight / 2) + "px";
+    if (this.jailTurn) {
+      this.element.classList.add("jail");
+      this.element.innerText = this.jailTurn;
+    } else {
+      this.element.classList.remove("jail");
+      this.element.innerText = "";
+    }
   }
 
   buy() {
@@ -124,8 +132,28 @@ class Player {
     }
   }
 
+  move = (n) => {
+    this.caseIndex = n;
+    this.forward(0);
+  }
+
   forward = (n) => {
-    this.caseIndex += n;
+    diceNumber.innerText = n;
+    if (this.jailTurn) {
+      if (n == this.game.gameRules.scoreToEscape) {
+        this.game.replay();
+        this.jailTurn = 0;
+        gameLog((e) => {
+          let name = document.createElement("span");
+          name.innerText = this.name + " s'est échapé de prison en faisant un " + n;
+          e.appendChild(name);
+        });
+      } else {
+        this.jailTurn--;
+      }
+    } else {
+      this.caseIndex += n;
+    }
     if (this.caseIndex >= this.game.caseNumber) {
       this.caseIndex -= this.game.caseNumber;
       this.addMoney(this.game.startValue);
@@ -136,7 +164,31 @@ class Player {
       });
     }
     this.case = this.game.plateau.getCaseAt(this.caseIndex);
-    if (this.case.isBuyable()) {
+    if (this.case.type == "luck") {
+        gameLog((e) => {
+          let name = document.createElement("span");
+          name.innerText = this.name + " a pioché une carte chance.";
+          e.appendChild(name);
+        });
+        this.reload();
+        this.game.getLuckCard();
+    } else if (this.case.type == "box") {
+        gameLog((e) => {
+          let name = document.createElement("span");
+          name.innerText = this.name + " a pioché une carte caisse de communauté.";
+          e.appendChild(name);
+        });
+        this.reload();
+        this.game.getBoxCard();
+    } else if (this.case.type == "gotojail") {
+        this.move(this.game.plateau.jailLocation);
+        this.jailTurn = 3;
+        gameLog((e) => {
+          let name = document.createElement("span");
+          name.innerText = this.name + " est maintenant derrière les barreaux.";
+          e.appendChild(name);
+        });
+    } else if (this.case.isBuyable()) {
       if (this.case.isBought() && this.case.getOwner() != this) {
         this.removeMoney(this.case.getRent());
         this.case.payToOwner();
