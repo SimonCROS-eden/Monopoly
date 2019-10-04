@@ -1,0 +1,380 @@
+* {
+  box-sizing: border-box;
+  &:focus {
+    outline: none;
+  }
+}
+
+html {
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.house, .hotel {
+  height: 15px;
+  width: 15px;
+  margin: 0 5px;
+  &.house {
+    background-color: rgb(0, 215, 26);
+  }
+  &.hotel {
+    background-color: rgb(113, 12, 12);
+  }
+}
+
+#overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(#919191, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 10;
+  font-size: 2rem;
+
+  &>div {
+    background-color: rgba(#ffffff, 0.8);
+    width: 90%;
+    height: 80%;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    padding: 100px;
+
+    &>* {
+      margin: 0;
+    }
+
+    &>button {
+      width: 200px;
+      height: 50px;
+      font-size: 2rem;
+      background-color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+
+  &.show {
+    display: flex;
+  }
+}
+
+#usernameSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(#919191, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 10;
+  &.hidden {
+    display: none;
+  }
+  &>div {
+    background-color: rgba(#ffffff, 0.8);
+    width: 90%;
+    height: 80%;
+    border-radius: 20px;
+    display: flex;
+    h2 {
+      margin: 0;
+    }
+    &>* {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+    }
+    button {
+      background-color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      padding: 5px 15px;
+      border: none;
+      font-size: 1.2rem;
+    }
+    &>.usernameForm {
+      justify-content: center;
+      flex: 1;
+      border-right: 1px solid black;
+      &>* {
+        margin: 10px 0;
+        font-size: 1.5rem;
+        background: white;
+        border: none;
+        border-radius: 5px;
+      }
+      &>input {
+        text-align: center;
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: none;
+        width: 200px;
+      }
+    }
+    &>.players {
+      border-left: 1px solid black;
+      flex: 1;
+      &>ul {
+        background-color: white;
+        width: 100%;
+        overflow-y: auto;
+        flex: 1;
+        list-style-type: none;
+        padding: 10px 5px;
+        margin: 10px 0;
+        border: 1px solid black;
+        border-radius: 5px;
+
+        &>li {
+          border-bottom: 1px solid rgb(130, 130, 130);
+          padding: 5px 0;
+        }
+      }
+    }
+  }
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  #playerPane {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    &>.properties {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      margin: 10px 0;
+    }
+  }
+}
+
+.squareContainer {
+  width: 100%;
+}
+.square {
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+  perspective: 1000px;
+
+  &>* {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    //top: -100px;
+    bottom: 0;
+  }
+}
+
+#plateau {
+  display: grid;
+  background-color: #BFDBAE;
+  transform-origin: bottom;
+  overflow: hidden;
+  //transform: rotateX(30deg);
+
+  &>.player {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    transition: all 0.4s ease;
+    opacity: 0.5;
+    border: 4px solid rgba(255, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    &.jail {
+      opacity: 1;
+    }
+  }
+
+  &>.lucks, &>.box {
+      font-size: 4rem;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10px -10px;
+      //
+      transform: rotate(-45deg);
+
+      &.lucks {
+          //transform: rotate(135deg);
+          background-color: orange;
+      }
+
+      &.box {
+          //transform: rotate(-45deg);
+          background-color: blue;
+      }
+  }
+}
+
+#scores {
+  background-color: #464852;
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+  width: 100%;
+}
+
+.case, .card {
+  font-size: 0.8rem;
+  &>*:not(div) {
+    margin: 5px;
+  }
+  h3 {
+    font-size: 1rem;
+    font-weight: normal;
+  }
+  ul {
+    align-self: flex-start;
+    padding: 0;
+    list-style-type: none;
+  }
+  p {
+    text-align: center;
+  }
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid black;
+  justify-content: center;
+  position: relative;
+  width: 140px;
+  height: 220px;
+  overflow-y: auto;
+  &.houseCase {
+    justify-content: flex-start;
+  }
+  &>i {
+    font-size: 1rem;
+  }
+  &>.color {
+    height: 20px;
+    width: 100%;
+    text-align: center;
+  }
+  &>.text {
+    text-align: center;
+  }
+  p {
+    margin: 5px;
+  }
+  button {
+    margin-top: auto;
+    margin-bottom: 5px;
+  }
+}
+
+.case {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid black;
+  justify-content: center;
+  background-color: #8FBC72;
+  text-align: center;
+  position: relative;
+  font-size: 0.5rem;
+  &.houseCase {
+    justify-content: flex-start;
+  }
+  &.parc>i, &.jail>i {
+    font-size: 2rem;
+  }
+  &.gotojail>img {
+    height: 30px;
+  }
+  &>i {
+    font-size: 1rem;
+  }
+  &>.color {
+    height: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &>.text {
+    text-align: center;
+  }
+  p {
+    margin: 5px;
+  }
+}
+
+@media (min-width: 768px) {
+  .squareContainer {
+    width: 50%;
+  }
+  .case {
+    font-size: 0.7rem;
+    &.parc>i, &.jail>i {
+      font-size: 4rem;
+    }
+    &.gotojail>img {
+      height: 60px;
+    }
+    &>i {
+      font-size: 2rem;
+    }
+    &>.color {
+      height: 20px;
+    }
+  }
+}
+
+#logs {
+  width: 100%;
+  margin-top: auto;
+  overflow-y: auto;
+  max-height: 250px;
+  &>p {
+    margin: 5px 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .case {
+    font-size: 0.9rem;
+  }
+}

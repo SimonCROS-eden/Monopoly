@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Monopoly</title>
+    <link rel="stylesheet" href="/css/style.min.css">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://kit.fontawesome.com/de51cadbd7.js"></script>
+  </head>
+  <body>
+    <header id="scores"></header>
+    <main>
+      <section id="usernameSelect">
+        <div>
+          <form method="GET" action="" class="usernameForm">
+            <input autofocus type="text" name="username" placeholder="Pseudo">
+            <button type="submit" name="validate">Rejoindre</button>
+          </form>
+          <div class="players">
+            <h2>Joueurs (<span class="playersCount"></span>/<span class="maxPlayers"></span>)</h2>
+            <ul id="playersInQueueList">
+            </ul>
+            <button type="button" name="start" id="launchGame">Lancer la partie</button>
+          </div>
+        </div>
+      </section>
+      <section id="overlay">
+        <div>
+          <h2 id="overlay_title"></h2>
+          <p id="overlay_message"></p>
+          <button type="button" id="overlay_close" name="button"></button>
+        </div>
+      </section>
+      <section id="playerPane">
+        <h2 class="name"></h2>
+        <div class="properties"></div>
+        <button type="button" name="de" id="buttonLaunch">Lancer les dés</button>
+        <h2 id="dice_number"></h2>
+        <button type="button" name="de" id="buy" disabled>Acheter</button>
+        <button type="button" name="de" id="house" disabled>Ajouter une maison</button>
+        <section id="logs"></section>
+      </section>
+      <div class="squareContainer">
+        <div class="square">
+          <section id="plateau">
+          </section>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script type="text/javascript" src="/js/Player.js"></script>
+  <script type="text/javascript" src="/js/Card.js"></script>
+  <script type="text/javascript" src="/js/Case.js"></script>
+  <script type="text/javascript" src="/js/Plateau.js"></script>
+  <script type="text/javascript" src="/js/Game.js"></script>
+  <script type="text/javascript" src="/js/Monopoly.js"></script>
+  <script type="text/javascript" src="/js/script.js"></script>
+</html>

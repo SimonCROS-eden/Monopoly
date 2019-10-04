@@ -1,0 +1,205 @@
+{
+  "size": 7,
+  "maxDiceScore": 6,
+  "startValue": 5000,
+  "maxPlayers": 6,
+  "startMoney": 30000,
+  "jailTime": 3,
+  "scoreToEscape": 6,
+  "players": [
+    "#FF0000",
+    "#0000FF",
+    "#44a144",
+    "#FF00FF",
+    "#f2ff00",
+    "#ffb800",
+    "#20f0be",
+    "#8c1a8f"
+  ],
+  "groups": {
+    "1": {
+      "color": "red",
+      "housePrice": 500,
+      "size": 3
+    },
+    "2": {
+      "color": "orange",
+      "housePrice": 800,
+      "size": 3
+    },
+    "3": {
+      "color": "green",
+      "housePrice": 1000,
+      "size": 3
+    },
+    "4": {
+      "color": "blue",
+      "housePrice": 1500,
+      "size": 3
+    }
+  },
+  "cards": [
+    {
+      "name": "Départ (+5000€)",
+      "type": "start"
+    },
+    {
+      "name": "Boul. St Michel",
+      "type": "house",
+      "group": 1,
+      "price": 5000
+    },
+    {
+      "name": "Gare de Perrache",
+      "type": "gare",
+      "group": 1000,
+      "price": 5000
+    },
+    {
+      "name": "Rue Boileau",
+      "type": "house",
+      "group": 1,
+      "price": 5000
+    },
+    {
+      "name": "Chance",
+      "type": "luck"
+    },
+    {
+      "name": "Rue de Abc",
+      "type": "house",
+      "group": 1,
+      "price": 5500
+    },
+    {
+      "name": "Simple visite",
+      "type": "jail"
+    },
+    {
+      "name": "Av",
+      "type": "house",
+      "group": 2,
+      "price": 6000
+    },
+    {
+      "name": "Caisse de communauté",
+      "type": "box"
+    },
+    {
+      "name": "Rue Boileau",
+      "type": "house",
+      "group": 2,
+      "price": 6000
+    },
+    {
+      "name": "Gare de Vaise",
+      "type": "gare",
+      "group": 1000,
+      "price": 5000
+    },
+    {
+      "name": "Rue de Abc",
+      "type": "house",
+      "group": 2,
+      "price": 6500
+    },
+    {
+      "name": "Parc gratuit",
+      "type": "parc"
+    },
+    {
+      "name": "Boul. de Belleville",
+      "type": "house",
+      "group": 3,
+      "price": 7000
+    },
+    {
+      "name": "Chance",
+      "type": "luck"
+    },
+    {
+      "name": "Rue Boileau",
+      "type": "house",
+      "group": 3,
+      "price": 7000
+    },
+    {
+      "name": "Gare de Grézieux",
+      "type": "gare",
+      "group": 1000,
+      "price": 5000
+    },
+    {
+      "name": "Rue de Abc",
+      "type": "house",
+      "group": 3,
+      "price": 7500
+    },
+    {
+      "name": "Allez en prison",
+      "type": "gotojail"
+    },
+    {
+      "name": "Avenue Maréchal Foch",
+      "type": "house",
+      "group": 4,
+      "price": 8000
+    },
+    {
+      "name": "Caisse de communauté",
+      "type": "box"
+    },
+    {
+      "name": "Rue Boileau",
+      "type": "house",
+      "group": 4,
+      "price": 9000
+    },
+    {
+      "name": "Gare de la Part-Dieu",
+      "type": "gare",
+      "group": 1000,
+      "price": 5000
+    },
+    {
+      "name": "Rue de la Paix",
+      "type": "house",
+      "group": 4,
+      "price": 10000
+    }
+  ],
+  "lucks": [
+    {
+      "message": "Vous gagnez le 3ème prix de beauté, vous gagnez 3000€ !",
+      "action": "give",
+      "value": 3000
+    },
+    {
+      "message": "Une lettre mystérieuse vous donne rendez-vous rue de la Paix.",
+      "action": "move",
+      "value": 23
+    },
+    {
+      "message": "Vous faites tomber 2500€ de votre porte-monnaie ;(",
+      "action": "lose",
+      "value": 2500
+    }
+  ],
+  "boxs": [
+    {
+      "message": "Vous gagnez le 3ème prix de beauté, vous gagnez 3000€ !",
+      "action": "give",
+      "value": 3000
+    },
+    {
+      "message": "Une lettre mystérieuse vous donne rendez-vous rue de la Paix.",
+      "action": "move",
+      "value": 23
+    },
+    {
+      "message": "Vous faites tomber 2500€ de votre porte-monnaie ;(",
+      "action": "lose",
+      "value": 2500
+    }
+  ]
+}
