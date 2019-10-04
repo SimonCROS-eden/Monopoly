@@ -1,6 +1,6 @@
 {
   "size": 7,
-  "maxDiceScore": 1,
+  "maxDiceScore": 6,
   "startValue": 5000,
   "maxPlayers": 6,
   "startMoney": 30000,
@@ -44,13 +44,13 @@
       "type": "start"
     },
     {
-      "name": "Boul. de Belleville",
+      "name": "Boul. St Michel",
       "type": "house",
       "group": 1,
       "price": 5000
     },
     {
-      "name": "Gare de la Part-Dieu",
+      "name": "Gare de Perrache",
       "type": "gare",
       "group": 1000,
       "price": 5000
@@ -76,7 +76,7 @@
       "type": "jail"
     },
     {
-      "name": "Boul. de Belleville",
+      "name": "Av",
       "type": "house",
       "group": 2,
       "price": 6000
@@ -92,7 +92,7 @@
       "price": 6000
     },
     {
-      "name": "Gare de la Part-Dieu",
+      "name": "Gare de Vaise",
       "type": "gare",
       "group": 1000,
       "price": 5000
@@ -124,7 +124,7 @@
       "price": 7000
     },
     {
-      "name": "Gare de la Part-Dieu",
+      "name": "Gare de Grézieux",
       "type": "gare",
       "group": 1000,
       "price": 5000
@@ -140,7 +140,7 @@
       "type": "gotojail"
     },
     {
-      "name": "Boul. de Belleville",
+      "name": "Avenue Maréchal Foch",
       "type": "house",
       "group": 4,
       "price": 8000

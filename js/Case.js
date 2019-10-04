@@ -55,27 +55,20 @@ class Case extends Card {
         if (!card) {
           this.colorElement = colorElement;
         }
-      } else if (this.type == "parc") {
-        element.classList.add("parc");
-
-        let car = document.createElement("i");
-        car.classList.add("fas");
-        car.classList.add("fa-car");
-        element.appendChild(car);
-      } else if (this.type == "jail") {
-        element.classList.add("jail");
-
-        let bars = document.createElement("i");
-        bars.classList.add("fas");
-        bars.classList.add("fa-dungeon");
-        element.appendChild(bars);
-      } else if (this.type == "gare") {
-        element.classList.add("gare");
-
-        let train = document.createElement("i");
-        train.classList.add("fas");
-        train.classList.add("fa-train");
-        element.appendChild(train);
+      } else if (this.type == "jail" || this.type == "gare" || this.type == "parc") {
+        let iElemeng = document.createElement("i");
+        iElemeng.classList.add("fas");
+        if (this.type == "gare") {
+          element.classList.add("gare");
+          iElemeng.classList.add("fa-train");
+        } else if (this.type == "jail") {
+          element.classList.add("jail");
+          iElemeng.classList.add("fa-dungeon");
+        } else if (this.type == "parc") {
+          element.classList.add("parc");
+          iElemeng.classList.add("fa-car");
+        }
+        element.appendChild(iElemeng);
       } else if (this.type == "gotojail") {
         element.classList.add("gotojail");
 

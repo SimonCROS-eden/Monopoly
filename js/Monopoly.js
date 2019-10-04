@@ -1,7 +1,7 @@
 class Monopoly {
 
   gameRules = {};
-  playersInQueue = ["Simon", "Solal"];
+  playersInQueue = [];
 
   constructor(gameRules) {
     this.gameRules = gameRules;
@@ -26,6 +26,12 @@ class Monopoly {
       li.innerText = p;
       playersInQueueListElement.appendChild(li);
       this.refreshPlayerCount();
+    }
+  }
+
+  removePlayer = (player) => {
+    if (this.playersInQueue.indexOf(player) > -1) {
+      this.playersInQueue.splice(this.players.indexOf(player), 1);
     }
   }
 
