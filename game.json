@@ -56,7 +56,7 @@
       "price": 5000
     },
     {
-      "name": "Rue Boileau",
+      "name": "Rue Tronchet",
       "type": "house",
       "group": 1,
       "price": 5000
@@ -76,7 +76,7 @@
       "type": "jail"
     },
     {
-      "name": "Av",
+      "name": "Av. de Saxe",
       "type": "house",
       "group": 2,
       "price": 6000
@@ -118,7 +118,7 @@
       "type": "luck"
     },
     {
-      "name": "Rue Boileau",
+      "name": "Rue Duquesne",
       "type": "house",
       "group": 3,
       "price": 7000
@@ -130,7 +130,7 @@
       "price": 5000
     },
     {
-      "name": "Rue de Abc",
+      "name": "Rue de la Rue",
       "type": "house",
       "group": 3,
       "price": 7500
@@ -183,23 +183,33 @@
       "message": "Vous faites tomber 2500€ de votre porte-monnaie ;(",
       "action": "lose",
       "value": 2500
+    },
+    {
+      "message": "Vous trouvez 2500€ par terre ! Qualle chance !!!",
+      "action": "give",
+      "value": 2500
+    },
+    {
+      "message": "La banque vous verse dix fois la somme voulue ! Ce sont des sirènes ? Ha oui, vous êtes en prison...",
+      "action": "move",
+      "value": 18
+    },
+    {
+      "message": "Votre toutou gagne le Championnat du Monde de beauté et vous rapporte 1M d'euros. Dans les coulisses, il mord une dizaine de personnes : les frais s'élèvent à 1M d'euros.",
+      "action": "give",
+      "value": 0
+    },
+    {
+      "message": "Le saviez vous ? Les abbayes ne piquent pas. Ce sont des lieux de recueillement.",
+      "action": "give",
+      "value": 0
     }
   ],
   "boxs": [
     {
-      "message": "Vous gagnez le 3ème prix de beauté, vous gagnez 3000€ !",
+      "message": "Il n'y a rien pour l'instant... Vous pouvez toujours proposer. En attendant, voici 1500€.",
       "action": "give",
-      "value": 3000
-    },
-    {
-      "message": "Une lettre mystérieuse vous donne rendez-vous rue de la Paix.",
-      "action": "move",
-      "value": 23
-    },
-    {
-      "message": "Vous faites tomber 2500€ de votre porte-monnaie ;(",
-      "action": "lose",
-      "value": 2500
+      "value": 1500
     }
   ]
 }

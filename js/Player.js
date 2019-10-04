@@ -187,26 +187,28 @@ class Player {
           e.appendChild(name);
         });
     } else if (this.case.isBuyable()) {
-      if (this.case.isBought() && this.case.getOwner() != this) {
-        this.removeMoney(this.case.getRent());
-        this.case.payToOwner();
+      if (this.case.isBought()) {
+        if (this.case.getOwner() != this) {
+          this.removeMoney(this.case.getRent());
+          this.case.payToOwner();
 
-        gameLog((e) => {
-          let name = document.createElement("span");
-          name.innerText = this.name + " est tombé chez " + this.case.getOwner().getName() + " ";
-          e.appendChild(name);
+          gameLog((e) => {
+            let name = document.createElement("span");
+            name.innerText = this.name + " est tombé chez " + this.case.getOwner().getName() + " ";
+            e.appendChild(name);
 
-          let prop = document.createElement("span");
-          if (this.case.hasColor()) {
-            prop.style.color = this.case.getColor();
-          }
-          prop.innerText = this.case.name + " ";
-          e.appendChild(prop);
+            let prop = document.createElement("span");
+            if (this.case.hasColor()) {
+              prop.style.color = this.case.getColor();
+            }
+            prop.innerText = this.case.name + " ";
+            e.appendChild(prop);
 
-          name = document.createElement("span");
-          name.innerText = "(" + this.case.getRent() + "€)";
-          e.appendChild(name);
-        });
+            name = document.createElement("span");
+            name.innerText = "(" + this.case.getRent() + "€)";
+            e.appendChild(name);
+          });
+        }
       } else {
         buyElement.disabled = false;
       }
