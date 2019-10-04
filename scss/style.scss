@@ -318,11 +318,8 @@ main {
   &.houseCase {
     justify-content: flex-start;
   }
-  &.parc>i, &.jail>i {
+  &.parc>i, &.jail>i, &.gotojail {
     font-size: 2rem;
-  }
-  &.gotojail>img {
-    height: 30px;
   }
   &>i {
     font-size: 1rem;
@@ -348,11 +345,8 @@ main {
   }
   .case {
     font-size: 0.7rem;
-    &.parc>i, &.jail>i {
+    &.parc>i, &.jail>i, &.gotojail>i {
       font-size: 4rem;
-    }
-    &.gotojail>img {
-      height: 60px;
     }
     &>i {
       font-size: 2rem;

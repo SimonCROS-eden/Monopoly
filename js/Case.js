@@ -55,7 +55,7 @@ class Case extends Card {
         if (!card) {
           this.colorElement = colorElement;
         }
-      } else if (this.type == "jail" || this.type == "gare" || this.type == "parc") {
+      } else if (this.type == "jail" || this.type == "gare" || this.type == "parc" || this.type == "gotojail") {
         let iElemeng = document.createElement("i");
         iElemeng.classList.add("fas");
         if (this.type == "gare") {
@@ -67,14 +67,11 @@ class Case extends Card {
         } else if (this.type == "parc") {
           element.classList.add("parc");
           iElemeng.classList.add("fa-car");
+        } else if (this.type == "gotojail") {
+          element.classList.add("gotojail");
+          iElemeng.classList.add("fa-angry");
         }
         element.appendChild(iElemeng);
-      } else if (this.type == "gotojail") {
-        element.classList.add("gotojail");
-
-        let car = document.createElement("img");
-        car.src = "/images/gotojail.png"
-        element.appendChild(car);
       }
 
       let text = document.createElement("h3");
