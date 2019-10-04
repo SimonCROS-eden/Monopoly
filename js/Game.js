@@ -4,8 +4,6 @@ class Game {
   startValue = 0;
   caseNumber = 0;
   gameRules = {};
-  lucks = [];
-  boxs = [];
   replayBool = false;
 
   constructor(players, gameRules) {
@@ -14,8 +12,6 @@ class Game {
     this.caseNumber = (gameRules.size - 1) * 4;
     this.gameRules = gameRules;
     this.plateau = new Plateau(gameRules.size, this.gameRules);
-    this.lucks = this.gameRules.lucks;
-    this.boxs = this.gameRules.boxs;
 
     launchElement.addEventListener("click", this.playRandom);
     buyElement.addEventListener("click", this.buy);
@@ -54,15 +50,15 @@ class Game {
     this.players[this.actualPlayerIndex].reloadPane();
   }
 
-  getLuckCard() {
-    let luck = this.lucks[Math.floor(Math.random()*this.lucks.length)];
-    showOverlay("Carte chance", luck.message, "Ok !", () => {
-      if (luck.action == "give") {
-        this.players[this.actualPlayerIndex].addMoney(luck.value);
-      } else if (luck.action == "lose") {
-        this.players[this.actualPlayerIndex].removeMoney(luck.value);
-      } else if (luck.action == "move") {
-        this.players[this.actualPlayerIndex].move(luck.value);
+  getCard(cardType) {
+    let card = this.gameRules[cardType][Math.floor(Math.random()*this.gameRules[cardType].length)];
+    showOverlay("Vous avez pioché une carte", card.message, "Ok !", () => {
+      if (card.action == "give") {
+        this.players[this.actualPlayerIndex].addMoney(card.value);
+      } else if (card.action == "lose") {
+        this.players[this.actualPlayerIndex].removeMoney(card.value);
+      } else if (card.action == "move") {
+        this.players[this.actualPlayerIndex].move(card.value);
       }
     });
   }
@@ -83,18 +79,5 @@ class Game {
     if (this.players.length == 1) {
       showOverlay("Gagné", this.players[0] + " a gagné !!!");
     }
-  }
-
-  getBoxCard() {
-    let box = this.boxs[Math.floor(Math.random()*this.boxs.length)];
-    showOverlay("Caisse de communauté", box.message, "Ok !", () => {
-      if (box.action == "give") {
-        this.players[this.actualPlayerIndex].addMoney(box.value);
-      } else if (box.action == "lose") {
-        this.players[this.actualPlayerIndex].removeMoney(box.value);
-      } else if (box.action == "move") {
-        this.players[this.actualPlayerIndex].move(box.value);
-      }
-    });
   }
 }

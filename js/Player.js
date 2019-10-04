@@ -142,7 +142,9 @@ class Player {
   }
 
   forward = (n) => {
-    diceNumber.innerText = n;
+    if (n > 0) {
+      diceNumber.innerText = n;
+    }
     if (this.jailTurn) {
       if (n == this.game.gameRules.scoreToEscape) {
         this.game.replay();
@@ -168,22 +170,14 @@ class Player {
       });
     }
     this.case = this.game.plateau.getCaseAt(this.caseIndex);
-    if (this.case.type == "luck") {
+    if (this.case.type == "luck" || this.case.type == "box") {
         gameLog((e) => {
           let name = document.createElement("span");
-          name.innerText = this.name + " a pioché une carte chance.";
+          name.innerText = this.name + " a pioché une carte " + (this.case.type == "luck" ? "chance" : "caisse de communauté") + ".";
           e.appendChild(name);
         });
         this.reload();
-        this.game.getLuckCard();
-    } else if (this.case.type == "box") {
-        gameLog((e) => {
-          let name = document.createElement("span");
-          name.innerText = this.name + " a pioché une carte caisse de communauté.";
-          e.appendChild(name);
-        });
-        this.reload();
-        this.game.getBoxCard();
+        this.game.getCard(this.case.type + "s");
     } else if (this.case.type == "gotojail") {
         this.move(this.game.plateau.jailLocation);
         this.jailTurn = 3;
