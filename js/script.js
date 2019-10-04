@@ -26,7 +26,7 @@ xmlhttp.onreadystatechange = function() {
     new Monopoly(cardsObject);
   }
 };
-xmlhttp.open("GET", "../game.json", true);
+xmlhttp.open("GET", "./game.json", true);
 xmlhttp.send();
 
 function gameLog(callback) {
